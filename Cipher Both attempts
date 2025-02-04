@@ -1,0 +1,60 @@
+#ceaser cypher
+
+letters = ["a","b","c","d","e","f","g","h","i","j","k","l", "m", "n", "o","p","q","r","s","t","u","v","w","x","y","z"]
+wordlist = input("Write whatever you want: ")
+
+def ceaser():
+    global wordlist
+    input_string = []
+    shift = int(input("Enter a number 1-26: "))
+    encrypted = []
+    for word in wordlist:
+        input_string.append(word)
+    for Word in input_string:
+        for letter in Word:
+            if letter in letters:
+                index = letters.index(letter) + shift
+                letter = letters[index]
+        encrypted.append(Word)
+   
+    print(encrypted)
+
+ceaser()
+
+#### Initial Attempt but it doesnt run
+
+input = input("Write something: ")
+key  = 13
+
+def encrypt():
+    global input
+    global key
+    translated = ''
+    for symbol in input:
+        if symbol.isalpha():
+            num = ord(symbol)
+            num += key
+
+            if symbol.isupper():
+                if num > ord('Z'):
+                    num -= 26
+                elif num < ord('A'):
+                    num += 26
+                    
+            elif symbol.islower():
+                if num > ord('z'):
+                    num -= 26
+                elif num < ord('a'):
+                    num += 26
+            
+            
+            translated += chr(num)
+    else:
+        translated += symbol
+
+
+    print(translated)
+
+encrypt()
+
+##2nd attmept that runs but im not sure if its accurate
